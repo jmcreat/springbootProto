@@ -23,8 +23,8 @@ public class SwaggerConfig {
                 .groupName("groupName1")
                 .select()
                 .apis(RequestHandlerSelectors.
-                        basePackage("com.example.demo.swagger.controller"))
-                .paths(PathSelectors.ant("/posts/**")).build();
+                        basePackage("com.example.demo.jpa.controller"))
+                .paths(PathSelectors.ant("/**")).build();
     }
 
     private ApiInfo apiInfo1() {
@@ -47,7 +47,7 @@ public class SwaggerConfig {
                 .groupName("groupName2")
                 .select()
                 .apis(RequestHandlerSelectors.
-                        basePackage("com.example.demo.swagger.controller"))
-                .paths(PathSelectors.ant("/posts/**")).build();
+                        basePackage("com.example.demo.jpa.controller"))
+                .paths(PathSelectors.ant("/**")).build();
     }
 }

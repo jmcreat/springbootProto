@@ -10,22 +10,22 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping
-    public Iterable<User> getAllUsers() {
+    public Iterable<UserEntity> getAllUsers() {
         return userRepository.findAll();
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
+    public UserEntity createUser(@RequestBody UserEntity user) {
         return userRepository.save(user);
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
+    public UserEntity getUserById(@PathVariable Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @PutMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User user) {
+    public UserEntity updateUser(@PathVariable Long id, @RequestBody UserEntity user) {
         user.setId(id);
         return userRepository.save(user);
     }
