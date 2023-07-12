@@ -5,10 +5,7 @@ import com.example.demo.jpa.repository.CrudEntityRepository;
 import com.example.demo.jpa.service.CrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -46,19 +43,19 @@ public class CrudController {
     }
 
     // 삽입
-    @GetMapping("insert")
+    @PostMapping("insert")
     public String insertMember(@RequestParam(value = "name") String name, @RequestParam(value = "age") int age) {
         return crudService.insertMember(name, age);
     }
 
     // 수정
-    @GetMapping("update")
+    @PutMapping("update")
     public String updateMember(@RequestParam(value = "name") String name, @RequestParam(value = "age") int age) {
         return crudService.updateMember(name, age);
     }
 
     // 삭제
-    @GetMapping("delete")
+    @DeleteMapping("delete")
     public String deleteMember(@RequestParam(value = "name") String name) {
         return crudService.deleteMember(name);
     }
